@@ -1,0 +1,19 @@
+[project]
+name = "homework-9-2"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Alex",email = "oleksiymosiychuk108@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flake8 (>=7.2.0,<8.0.0)",
+    "mypy (>=1.16.1,<2.0.0)",
+    "black (>=25.1.0,<26.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
