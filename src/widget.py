@@ -1,16 +1,26 @@
 import masks
 
 
-def mask_account_card(user_data: str) -> str:
+def mask_account_card(full_account_card: str) -> str:
+    """ Функция принимает один аргумент — строку, содержащую тип и номер карты или счета,
+    возвращает строку с замаскированным номером """
 
-
-    response_str = []
-    for item in user_data.split(" "):
+    mask_response = ""
+    for item in full_account_card.split(" "):
         if item.isalpha():
-            response_str.append(item)
+            mask_response += item
         elif len(item) == 16:
-            response_str.append(masks.get_mask_card_number(item))
+            mask_response += masks.get_mask_card_number(item)
         elif len(item) == 20:
-            response_str.append(masks.get_mask_account(item))
+            mask_response += masks.get_mask_account(item)
 
-    return " ".join(response_str)
+    return mask_response
+
+
+def get_date(date_in_full_formate: str) -> str:
+    """ Функция принимает дату в формате 'YYYY-MM-DDTHH:MM:SS.mmmmmm' и возвращает в формате 'DD.ММ.YYYY' """
+
+    date_part = date_in_full_formate.split("T")[0]
+    date_in_list = date_part.split("-")[::-1]
+
+    return ".".join(date_in_list)
