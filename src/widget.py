@@ -35,7 +35,3 @@ def get_date(date_in_full_formate: str) -> Any:
         return datetime.fromisoformat(date_in_full_formate).strftime("%d.%m.%Y")
     except ValueError:
         return ""
-
-print(get_date("2024-03-01T02:26:18.671407"))
-print(get_date("2024-03-11"))
-print(get_date(""))
