@@ -1,5 +1,7 @@
+from datetime import datetime
+
 from src.widget import get_date
-from _datetime import datetime
+
 
 def filter_by_state(data_list: list, state: str = "EXECUTED") -> list:
     """Функция принимает список словарей и опционально значение для ключа state
@@ -15,7 +17,7 @@ def sort_by_date(data_list: list, reverse_parameter: bool = True) -> list:
 
     data_list_with_correct_date = []
 
-    #Заполняем список элементами с корректной датой
+    # Заполняем список элементами с корректной датой
     for item in data_list:
         try:
             if get_date(item["date"]):
@@ -26,5 +28,5 @@ def sort_by_date(data_list: list, reverse_parameter: bool = True) -> list:
     return sorted(
         data_list_with_correct_date,
         key=lambda data: datetime.fromisoformat(data["date"]).strftime("%Y.%m.%d"),
-        reverse=reverse_parameter
+        reverse=reverse_parameter,
     )
