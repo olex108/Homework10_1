@@ -1,8 +1,8 @@
-﻿import pytest
+﻿from typing import Union
+
+import pytest
 
 from src.masks import get_mask_account, get_mask_card_number
-
-from typing import Union
 
 
 # Test for function get_mask_card_number
@@ -23,7 +23,7 @@ def test_get_mask_card_number_empty(empty_string: str) -> None:
 
 
 # Проверка работы функции на различных входных форматах (вызов ошибке при неверном типе входных данных)
-def test_get_mask_card_number_error(list_of_card_numbers: list) -> None:
+def test_get_mask_card_number_error(list_of_card_numbers: int | str) -> None:
 
     with pytest.raises(TypeError):
         get_mask_card_number(list_of_card_numbers)

@@ -1,5 +1,3 @@
-import random
-
 from typing import Iterator
 
 
@@ -9,7 +7,9 @@ def filter_by_currency(transactions: list[dict], currency: str) -> Iterator:
     Функция должна возвращать итератор, который поочередно выдает транзакции, где валюта операции соответствует
     заданной (например, USD)
     """
-    return (transaction for transaction in transactions if transaction["operationAmount"]["currency"]["code"] == currency)
+    return (
+        transaction for transaction in transactions if transaction["operationAmount"]["currency"]["code"] == currency
+    )
 
 
 def transaction_descriptions(transactions: list[dict]) -> Iterator:
@@ -28,7 +28,7 @@ def card_number_generator(start_number: int, stop_number: int) -> Iterator:
     Генератор должен принимать начальное и конечное значения для генерации диапазона номеров.
     """
 
-    for number in range(start_number, stop_number + 1):
+    for card_number in range(start_number, stop_number + 1):
         # number = str(random.randint(start_number, stop_number))
-        number = f"{'0' * (16-len(str(number)))}{str(number)}"
+        number = f"{'0' * (16-len(str(card_number)))}{str(card_number)}"
         yield f"{str(number)[0:4]} {str(number)[4:8]} {str(number)[8:12]} {str(number)[12:16]}"
