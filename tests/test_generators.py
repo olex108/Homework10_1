@@ -67,8 +67,11 @@ def test_transaction_descriptions_empty_list() -> None:
 
 
 # Test for function card_number_generator
-def test_card_number_generator() -> None:
-    test_generator = card_number_generator(1, 3)
+@pytest.mark.parametrize(
+    "test_start, test_stop", [(1, 3)]
+)
+def test_card_number_generator(test_start: int, test_stop: int) -> None:
+    test_generator = card_number_generator(test_start, test_stop)
     # Проверка, что генератор выдает правильные номера карт в заданном диапазоне
     # Проверка корректности форматирования номеров карт
     assert next(test_generator) == "0000 0000 0000 0001"
