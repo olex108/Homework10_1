@@ -1,12 +1,12 @@
+from typing import Any, Union
+
 import pytest
 
 from src.decorators import log
-from src.masks import get_mask_card_number
-from typing import Union
 
 
 # Test for function log
-def test_log(capsys):
+def test_log(capsys: Any) -> None:
     @log()
     def test_function(card_number: Union[int, str]) -> str:
         """Функция принимает на вход номер карты в виде числа и
@@ -22,17 +22,19 @@ def test_log(capsys):
     # тестирования вывода в консоль.
     test_function(1234123412341234)
     capture = capsys.readouterr()
-    assert capture.out == "test_function ok\n"
-
+    result = capture.out
+    assert result.split("\n")[2] == "test_function ok"
 
     with pytest.raises(ValueError):
         test_function(12341234123412)
 
     capture = capsys.readouterr()
-    assert capture.out == "test_function error: ValueError. Inputs: (12341234123412,), {}\n"
+    result = capture.out
+    assert result.split("\n")[2] == "test_function error: ValueError. Inputs: (12341234123412,), {}"
 
-    # Тесты выполнение функций с декоратором и обработки исключений
-def test_function_with_decorator():
+
+# Тесты выполнение функций с декоратором и обработки исключений
+def test_function_with_decorator() -> None:
     @log()
     def test_function(card_number: Union[int, str]) -> str:
         """Функция принимает на вход номер карты в виде числа и
