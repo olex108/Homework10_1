@@ -1,10 +1,10 @@
-from unittest.mock import Mock, patch
+import json
+from unittest.mock import Mock
+
 from src.utils import get_transactions_data
 
-import json
 
-
-def test_get_transactions_data():
+def test_get_transactions_data() -> None:
 
     # Тестирование по заданным данным в файле
     mock_data = Mock(return_value=[{"key": "value"}])
@@ -20,5 +20,5 @@ def test_get_transactions_data():
     json.load = mock_data_empty
     assert get_transactions_data("data/operations.json") == []
 
-    #Тестирование функции при вызове несуществующего файла
+    # Тестирование функции при вызове несуществующего файла
     assert get_transactions_data("data/operation.json") == []

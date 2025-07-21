@@ -1,6 +1,5 @@
 import json
 from json import JSONDecodeError
-import os
 
 # def load_json(data_list):
 #     """
@@ -12,7 +11,7 @@ import os
 #         json.dump(data_list, file, indent=4)
 
 
-def get_transactions_data(path_to_file: str) ->list:
+def get_transactions_data(path_to_file: str) -> list:
     """
     Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях.
     Если файл пустой, содержит не список или не найден, функция возвращает пустой список
@@ -22,7 +21,7 @@ def get_transactions_data(path_to_file: str) ->list:
         with open(path_to_file, "r") as file:
             data = json.load(file)
 
-        if type(data) != list:
+        if not isinstance(data, list):
             return []
         else:
             return data
@@ -32,5 +31,3 @@ def get_transactions_data(path_to_file: str) ->list:
 
     except FileNotFoundError:
         return []
-
-
