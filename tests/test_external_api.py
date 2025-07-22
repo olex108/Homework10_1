@@ -1,4 +1,4 @@
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import pytest
 
@@ -6,7 +6,7 @@ from src.external_api import get_transaction_amount
 
 
 @patch("requests.request")
-def test_get_transaction_amount(mock_get) -> None:
+def test_get_transaction_amount(mock_get: Mock) -> None:
     # Тест функции при получении транзакции в рублях
     assert (
         get_transaction_amount(
