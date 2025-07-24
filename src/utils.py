@@ -3,12 +3,11 @@ import logging
 import os
 from json import JSONDecodeError
 
-
 logger = logging.getLogger("utils")
 logger.setLevel(logging.DEBUG)
 path_to_file = os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, "logs", "utils.log")
 file_handler = logging.FileHandler(path_to_file, mode="w", encoding="'utf-8")
-file_formatter = logging.Formatter(f"%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
@@ -47,4 +46,3 @@ def get_transactions_data(path_to_file: str) -> list:
     except FileNotFoundError as ex:
         logger.error(f"Файл по заданному пути отсутствует {ex}")
         return []
-get_transactions_data(os.path.join(os.pardir, "data" , "options.json"))

@@ -1,14 +1,13 @@
-from typing import Union
 import logging
 import os
-
+from typing import Union
 
 logger = logging.getLogger("masks")
 logger.setLevel(logging.DEBUG)
 
 path_to_file = os.path.join(os.path.abspath(__file__), os.pardir, os.pardir, "logs", "masks.log")
 file_handler = logging.FileHandler(path_to_file, mode="w", encoding="'utf-8")
-file_formatter = logging.Formatter(f"%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
@@ -45,6 +44,3 @@ def get_mask_account(account_number: Union[int, str]) -> str:
 
     logger.info(f"Функция {get_mask_account.__name__} возвращает маску счета")
     return f"**{str(account_number)[-4:]}"
-
-
-get_mask_card_number(1234123412341234)
