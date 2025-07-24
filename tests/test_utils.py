@@ -1,4 +1,3 @@
-import json
 from unittest.mock import Mock, patch
 
 from src.utils import get_transactions_data
