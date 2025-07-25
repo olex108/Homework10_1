@@ -31,9 +31,7 @@ def test_get_mask_card_number_error(list_of_card_numbers: int | str) -> None:
 
 # Test for function get_mask_account
 # Тестирование правильности маскирования номера счета
-@pytest.mark.parametrize(
-    "values, expected", [("12341234123412341234", "**1234")]
-)
+@pytest.mark.parametrize("values, expected", [("12341234123412341234", "**1234")])
 # Проверка работы функции с различными форматами и длинами номеров счетов.
 # Проверка, что функция корректно обрабатывает входные данные, где номер счета меньше ожидаемой длины
 def test_get_mask_account(values: Union[int, str], expected: str) -> None:
