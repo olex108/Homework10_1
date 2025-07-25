@@ -1,9 +1,6 @@
-import os.path
 from typing import Any
 
 import pandas as pd
-
-import os
 
 
 def get_data_from_csv(path_to_file: str) -> list[Any]:
