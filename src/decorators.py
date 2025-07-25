@@ -1,5 +1,5 @@
-from typing import Any, Union
 from datetime import datetime
+from typing import Any, Union
 
 
 def log(filename: Union[None, str] = None) -> Any:
