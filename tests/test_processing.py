@@ -1,6 +1,6 @@
 import pytest
 
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state, process_bank_search, sort_by_date
 
 
 # Test for function filter_by_state
@@ -101,3 +101,58 @@ def test_sort_by_date_different_date(
 # Проверка работы функции при вводе пустого списка
 def test_sort_by_date_empty() -> None:
     assert sort_by_date([]) == []
+
+
+# Test for function process_bank_search
+@pytest.mark.parametrize(
+    "transactions_list, search, expected",
+    [
+        (
+            [
+                {
+                    "state": "EXECUTED",
+                    "date": "2018-02-03T07:16:28.366141",
+                    "operationAmount": {"amount": "90297.21", "currency": {"name": "руб.", "code": "RUB"}},
+                    "description": "Открытие вклада",
+                    "to": "Счет 37653295304860108767",
+                },
+                {
+                    "id": 587085106,
+                    "state": "EXECUTED",
+                    "date": "2018-03-23T10:45:06.972075",
+                    "operationAmount": {"amount": "48223.05", "currency": {"name": "руб.", "code": "RUB"}},
+                    "description": "Открытие вклада",
+                    "to": "Счет 41421565395219882431",
+                },
+                {
+                    "id": 596171168,
+                    "state": "EXECUTED",
+                    "date": "2018-07-11T02:26:18.671407",
+                    "operationAmount": {"amount": "79931.03", "currency": {"name": "руб.", "code": "RUB"}},
+                    "description": "Перевод",
+                    "to": "Счет 72082042523231456215",
+                },
+            ],
+            "вклад",
+            [
+                {
+                    "state": "EXECUTED",
+                    "date": "2018-02-03T07:16:28.366141",
+                    "operationAmount": {"amount": "90297.21", "currency": {"name": "руб.", "code": "RUB"}},
+                    "description": "Открытие вклада",
+                    "to": "Счет 37653295304860108767",
+                },
+                {
+                    "id": 587085106,
+                    "state": "EXECUTED",
+                    "date": "2018-03-23T10:45:06.972075",
+                    "operationAmount": {"amount": "48223.05", "currency": {"name": "руб.", "code": "RUB"}},
+                    "description": "Открытие вклада",
+                    "to": "Счет 41421565395219882431",
+                },
+            ],
+        ),
+    ],
+)
+def test_process_bank_search(transactions_list: list, search: str, expected: list) -> None:
+    assert process_bank_search(transactions_list, search) == expected
