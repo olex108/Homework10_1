@@ -11,6 +11,9 @@ def mask_account_card(full_account_card: str) -> str:
     number_account_card = []
     mask_response = []
 
+    if full_account_card is None:
+        return
+
     for item in full_account_card.split(" "):
         if item.isalpha():
             mask_response.append(item)
