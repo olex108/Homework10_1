@@ -15,7 +15,7 @@ def test_get_transaction_amount(mock_get: Mock) -> None:
                 "state": "EXECUTED",
                 "date": "2019-08-26T10:50:58.294041",
                 "operationAmount": {"amount": "31957.58", "currency": {"name": "\u0440\u0443\u0431.", "code": "RUB"}},
-                "description": "\u041f\u0435\u0440\u0435\u0432\u043e\u0434 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438",
+                "description": "",
                 "from": "Maestro 1596837868705199",
                 "to": "\u0421\u0447\u0435\u0442 64686473678894779589",
             }
@@ -36,7 +36,7 @@ def test_get_transaction_amount(mock_get: Mock) -> None:
                 "state": "EXECUTED",
                 "date": "2019-08-26T10:50:58.294041",
                 "operationAmount": {"amount": "31957.58", "currency": {"name": "\u0440\u0443\u0431.", "code": "USD"}},
-                "description": "\u041f\u0435\u0440\u0435\u0432\u043e\u0434 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438",
+                "description": "",
                 "from": "Maestro 1596837868705199",
                 "to": "\u0421\u0447\u0435\u0442 64686473678894779589",
             }
@@ -53,7 +53,7 @@ def test_get_transaction_amount(mock_get: Mock) -> None:
                 "state": "EXECUTED",
                 "date": "2019-08-26T10:50:58.294041",
                 "operationAmount": {"amount": "31957.58", "currency": {"name": "\u0440\u0443\u0431.", "code": "USD"}},
-                "description": "\u041f\u0435\u0440\u0435\u0432\u043e\u0434 \u043e\u0440\u0433\u0430\u043d\u0438\u0437\u0430\u0446\u0438\u0438",
+                "description": "",
                 "from": "Maestro 1596837868705199",
                 "to": "\u0421\u0447\u0435\u0442 64686473678894779589",
             }

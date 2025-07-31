@@ -10,8 +10,8 @@ def get_data_from_csv(path_to_file: str) -> list[Any]:
     Функция выдает список словарей с транзакциями
     """
 
-    file_data = pd.read_csv(path_to_file)
-    data_list = file_data.to_dict(orient="records")
+    file_data = pd.read_csv(path_to_file, delimiter=";")
+    data_list = file_data.to_dict("records")
 
     return data_list
 
