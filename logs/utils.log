@@ -1,0 +1,8 @@
+2025-07-29 02:46:48,216 - utils - INFO - вызов функции get_transactions_data, путь до файла data/operations.json
+2025-07-29 02:46:48,216 - utils - INFO - Функция возвращает данные из файла
+2025-07-29 02:46:48,216 - utils - INFO - вызов функции get_transactions_data, путь до файла data/operations.json
+2025-07-29 02:46:48,216 - utils - WARNING - Данные в файле не соответствуют ожидаемому формату
+2025-07-29 02:46:48,216 - utils - INFO - вызов функции get_transactions_data, путь до файла data/operations.json
+2025-07-29 02:46:48,216 - utils - WARNING - Данные в файле не соответствуют ожидаемому формату
+2025-07-29 02:46:48,216 - utils - INFO - вызов функции get_transactions_data, путь до файла data/operation.json
+2025-07-29 02:46:48,216 - utils - ERROR - Файл по заданному пути отсутствует [Errno 2] No such file or directory: 'data/operation.json'
